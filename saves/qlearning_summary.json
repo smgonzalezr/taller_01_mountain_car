@@ -1,0 +1,11 @@
+{
+  "episodes": 100,
+  "mean_reward": -138.66,
+  "std_reward": 11.353607356254663,
+  "best_reward": -114.0,
+  "worst_reward": -151.0,
+  "reached_flag": 100,
+  "agent": "qlearning",
+  "train_episodes": 20000,
+  "train_minutes": 1.42
+}

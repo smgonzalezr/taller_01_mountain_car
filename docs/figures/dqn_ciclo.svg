@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 700" font-family="Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="860" height="700" fill="#ffffff"/>
+  <text x="430" y="34" text-anchor="middle" font-size="18" font-weight="bold" fill="#111">Ciclo de entrenamiento del DQN</text>
+
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#333"/></marker>
+    <marker id="ab" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1f4e79"/></marker>
+    <marker id="ag" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#2e6b2e"/></marker>
+  </defs>
+
+  <!-- box 1 -->
+  <rect x="280" y="58" width="300" height="52" rx="8" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="430" y="80" text-anchor="middle" font-size="13" fill="#111">Observar el estado del entorno</text>
+  <text x="430" y="98" text-anchor="middle" font-size="12" fill="#111">(dos numeros continuos, sin discretizar)</text>
+
+  <!-- box 2 exploration (red) -->
+  <rect x="280" y="128" width="300" height="82" rx="8" fill="#fdeeee" stroke="#a33" stroke-width="1.8"/>
+  <text x="430" y="148" text-anchor="middle" font-size="13" font-weight="bold" fill="#611">Elegir la accion</text>
+  <text x="430" y="165" text-anchor="middle" font-size="12" fill="#611">al explorar mantiene la misma accion</text>
+  <text x="430" y="181" text-anchor="middle" font-size="12" fill="#611">varios pasos seguidos, el resto de veces</text>
+  <text x="430" y="197" text-anchor="middle" font-size="12" fill="#611">la que da mayor valor la red en linea</text>
+
+  <!-- box 3 -->
+  <rect x="280" y="228" width="300" height="44" rx="8" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="430" y="255" text-anchor="middle" font-size="13" fill="#111">Ejecutar la accion en el entorno</text>
+
+  <!-- box 4 buffer (blue) -->
+  <rect x="280" y="290" width="300" height="56" rx="8" fill="#eef3fb" stroke="#1f4e79" stroke-width="1.8"/>
+  <text x="430" y="312" text-anchor="middle" font-size="12.5" fill="#123">Guardar la transicion en el buffer de repeticion</text>
+  <text x="430" y="330" text-anchor="middle" font-size="12" fill="#123">estado, accion, recompensa, nuevo estado, fin</text>
+
+  <!-- box 5 sample (blue) -->
+  <rect x="280" y="364" width="300" height="44" rx="8" fill="#eef3fb" stroke="#1f4e79" stroke-width="1.8"/>
+  <text x="430" y="391" text-anchor="middle" font-size="13" fill="#123">Tomar un minilote aleatorio del buffer</text>
+
+  <!-- box 6 bellman (green) -->
+  <rect x="280" y="426" width="300" height="84" rx="8" fill="#eef7ee" stroke="#2e6b2e" stroke-width="1.8"/>
+  <text x="430" y="446" text-anchor="middle" font-size="13" font-weight="bold" fill="#143">Calcular el objetivo de Bellman</text>
+  <text x="430" y="463" text-anchor="middle" font-size="11.5" fill="#143">objetivo = recompensa + gamma por el mejor</text>
+  <text x="430" y="479" text-anchor="middle" font-size="11.5" fill="#143">valor del nuevo estado segun la red objetivo</text>
+  <text x="430" y="495" text-anchor="middle" font-size="11.5" fill="#143">si llega a la meta, solo la recompensa</text>
+
+  <!-- box 7 gradient (green) -->
+  <rect x="280" y="528" width="300" height="56" rx="8" fill="#eef7ee" stroke="#2e6b2e" stroke-width="1.8"/>
+  <text x="430" y="550" text-anchor="middle" font-size="12.5" fill="#143">Ajustar la red en linea con descenso de gradiente</text>
+  <text x="430" y="568" text-anchor="middle" font-size="12" fill="#143">acercando su valor al objetivo de Bellman</text>
+
+  <!-- side box target net (green dashed) -->
+  <rect x="632" y="426" width="196" height="84" rx="8" fill="#eef7ee" stroke="#2e6b2e" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="730" y="452" text-anchor="middle" font-size="11.5" fill="#143">Cada cierto numero de</text>
+  <text x="730" y="469" text-anchor="middle" font-size="11.5" fill="#143">episodios copiar los pesos</text>
+  <text x="730" y="486" text-anchor="middle" font-size="11.5" fill="#143">de la red en linea a la</text>
+  <text x="730" y="503" text-anchor="middle" font-size="11.5" fill="#143">red objetivo</text>
+
+  <!-- arrows down -->
+  <line x1="430" y1="110" x2="430" y2="126" stroke="#333" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="430" y1="210" x2="430" y2="226" stroke="#333" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="430" y1="272" x2="430" y2="288" stroke="#333" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="430" y1="346" x2="430" y2="362" stroke="#333" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="430" y1="408" x2="430" y2="424" stroke="#333" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="430" y1="510" x2="430" y2="526" stroke="#333" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- target net feeds bellman -->
+  <line x1="632" y1="468" x2="584" y2="468" stroke="#2e6b2e" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#ag)"/>
+  <text x="708" y="420" text-anchor="middle" font-size="10.5" fill="#2e6b2e">entrega los valores objetivo</text>
+
+  <!-- return arrow -->
+  <polyline points="280,556 210,556 210,84 278,84" fill="none" stroke="#1f4e79" stroke-width="1.8" marker-end="url(#ab)"/>
+  <text x="206" y="320" text-anchor="middle" font-size="12" fill="#1f4e79" transform="rotate(-90 206 320)">repetir en cada paso</text>
+</svg>

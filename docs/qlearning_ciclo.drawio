@@ -1,0 +1,51 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
+  <diagram name="Ciclo Q-Learning" id="ql-cycle">
+    <mxGraphModel dx="1026" dy="748" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Ciclo de entrenamiento del Q-Learning tabular" style="text;html=1;fontSize=16;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="180" y="20" width="440" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="b1" value="Observar el estado del entorno&#xa;y llevarlo a una casilla de la rejilla" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="280" y="70" width="290" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="b2" value="Elegir la accion&#xa;con probabilidad epsilon al azar,&#xa;el resto de veces la mejor de la tabla Q" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="280" y="170" width="290" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="b3" value="Ejecutar la accion en el entorno" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="280" y="280" width="290" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="b4" value="Recibir la recompensa de menos uno&#xa;y el nuevo estado" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="280" y="375" width="290" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="b5" value="Actualizar la tabla Q hacia el objetivo&#xa;objetivo = recompensa + gamma por el mejor&#xa;valor del nuevo estado&#xa;Q(s,a) se acerca al objetivo segun la tasa" style="rounded=0;whiteSpace=wrap;html=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="280" y="475" width="290" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Al terminar cada episodio se reduce epsilon,&#xa;asi el agente explora mucho al principio&#xa;y confia en la tabla Q hacia el final" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fontSize=12;" parent="1" vertex="1">
+          <mxGeometry x="610" y="180" width="210" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#333333;endArrow=block;" parent="1" source="b1" target="b2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#333333;endArrow=block;" parent="1" source="b2" target="b3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#333333;endArrow=block;" parent="1" source="b3" target="b4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#333333;endArrow=block;" parent="1" source="b4" target="b5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="repetir en cada paso" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#1f4e79;endArrow=block;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="b5" target="b1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200" y="515" />
+              <mxPoint x="200" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

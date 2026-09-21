@@ -1,0 +1,10 @@
+{
+  "episodes": 100,
+  "mean_reward": -117.33,
+  "std_reward": 16.729647336390567,
+  "best_reward": -85.0,
+  "worst_reward": -144.0,
+  "reached_flag": 100,
+  "agent": "dqn",
+  "train_episodes": 2500
+}

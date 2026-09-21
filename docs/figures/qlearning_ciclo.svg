@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 620" font-family="Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="840" height="620" fill="#ffffff"/>
+  <text x="420" y="34" text-anchor="middle" font-size="18" font-weight="bold" fill="#111">Ciclo de entrenamiento del Q-Learning tabular</text>
+
+  <!-- box 1 -->
+  <rect x="270" y="60" width="300" height="56" rx="8" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="420" y="83" text-anchor="middle" font-size="13" fill="#111">Observar el estado del entorno</text>
+  <text x="420" y="101" text-anchor="middle" font-size="13" fill="#111">y llevarlo a una casilla de la rejilla</text>
+
+  <!-- box 2 -->
+  <rect x="270" y="146" width="300" height="72" rx="8" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="420" y="167" text-anchor="middle" font-size="13" fill="#111">Elegir la accion</text>
+  <text x="420" y="185" text-anchor="middle" font-size="13" fill="#111">con probabilidad epsilon al azar,</text>
+  <text x="420" y="203" text-anchor="middle" font-size="13" fill="#111">el resto de veces la mejor de la tabla Q</text>
+
+  <!-- box 3 -->
+  <rect x="270" y="248" width="300" height="46" rx="8" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="420" y="276" text-anchor="middle" font-size="13" fill="#111">Ejecutar la accion en el entorno</text>
+
+  <!-- box 4 -->
+  <rect x="270" y="324" width="300" height="56" rx="8" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="420" y="347" text-anchor="middle" font-size="13" fill="#111">Recibir la recompensa de menos uno</text>
+  <text x="420" y="365" text-anchor="middle" font-size="13" fill="#111">y el nuevo estado</text>
+
+  <!-- box 5 (update) -->
+  <rect x="270" y="410" width="300" height="86" rx="8" fill="#eef3fb" stroke="#1f4e79" stroke-width="1.8"/>
+  <text x="420" y="431" text-anchor="middle" font-size="13" font-weight="bold" fill="#123">Actualizar la tabla Q hacia el objetivo</text>
+  <text x="420" y="449" text-anchor="middle" font-size="12" fill="#123">objetivo = recompensa + gamma por el</text>
+  <text x="420" y="465" text-anchor="middle" font-size="12" fill="#123">mejor valor del nuevo estado</text>
+  <text x="420" y="481" text-anchor="middle" font-size="12" fill="#123">Q(s,a) se acerca al objetivo segun la tasa</text>
+
+  <!-- note -->
+  <rect x="600" y="150" width="228" height="92" rx="4" fill="#fbfbe7" stroke="#8a8a2a" stroke-width="1.2" stroke-dasharray="5 3"/>
+  <text x="714" y="176" text-anchor="middle" font-size="11.5" fill="#444">Al terminar cada episodio</text>
+  <text x="714" y="193" text-anchor="middle" font-size="11.5" fill="#444">se reduce epsilon, asi el agente</text>
+  <text x="714" y="210" text-anchor="middle" font-size="11.5" fill="#444">explora mucho al principio y</text>
+  <text x="714" y="227" text-anchor="middle" font-size="11.5" fill="#444">confia en la tabla Q al final</text>
+
+  <!-- arrows down -->
+  <defs>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#333"/>
+    </marker>
+    <marker id="arb" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#1f4e79"/>
+    </marker>
+  </defs>
+  <line x1="420" y1="116" x2="420" y2="144" stroke="#333" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="420" y1="218" x2="420" y2="246" stroke="#333" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="420" y1="294" x2="420" y2="322" stroke="#333" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="420" y1="380" x2="420" y2="408" stroke="#333" stroke-width="1.5" marker-end="url(#ar)"/>
+
+  <!-- return arrow -->
+  <polyline points="270,453 200,453 200,88 268,88" fill="none" stroke="#1f4e79" stroke-width="1.8" marker-end="url(#arb)"/>
+  <text x="196" y="275" text-anchor="middle" font-size="12" fill="#1f4e79" transform="rotate(-90 196 275)">repetir en cada paso</text>
+</svg>
